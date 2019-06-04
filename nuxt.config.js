@@ -59,6 +59,12 @@ export default {
           exclude: /(node_modules)/,
         });
       }
+
+      // raw-loader
+      config.module.rules.push({
+        test: /\.txt$/,
+        loader: 'raw-loader',
+      });
     },
   },
 };
