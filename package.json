@@ -1,7 +1,7 @@
 {
-  "name": "syntek-frontend",
+  "name": "Syntek | Programming language",
   "version": "0.0.1",
-  "description": "Syntek frontend",
+  "description": "Syntek is a beginner friendly programming language",
   "author": "SebastiaanYN",
   "private": true,
   "scripts": {
@@ -13,9 +13,11 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
+    "normalize.css": "^8.0.1",
     "nuxt": "^2.4.0",
-    "@nuxtjs/axios": "^5.3.6"
+    "sass-mq": "^5.0.0"
   },
   "devDependencies": {
     "@syntek/eslint-config-syntek": "^1.1.1",
