@@ -1,7 +1,7 @@
 {
-  "name": "Syntek | Programming language",
+  "name": "syntek-frontend",
   "version": "0.0.1",
-  "description": "Syntek is a beginner friendly programming language",
+  "description": "Syntek frontend",
   "author": "SebastiaanYN",
   "private": true,
   "scripts": {

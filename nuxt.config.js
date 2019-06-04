@@ -1,4 +1,6 @@
-import pkg from './package';
+const TITLE = 'Syntek | Programming language';
+const DESCRIPTION = 'Syntek is a beginner friendly programming language';
+const THEME_COLOR = '#FFD273';
 
 export default {
   mode: 'universal',
@@ -9,16 +11,16 @@ export default {
       lang: 'en',
     },
 
-    title: pkg.name,
+    title: TITLE,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
-      { hid: 'theme-color', name: 'theme-color', content: '#FFD273' },
+      { hid: 'description', name: 'description', content: DESCRIPTION },
+      { hid: 'theme-color', name: 'theme-color', content: THEME_COLOR },
 
       // Open Graph
-      { hid: 'og:title', name: 'og:title', content: pkg.name },
-      { hid: 'og:description', name: 'og:description', content: pkg.description },
+      { hid: 'og:title', name: 'og:title', content: TITLE },
+      { hid: 'og:description', name: 'og:description', content: DESCRIPTION },
       { hid: 'og:url', name: 'og:url', content: 'https://syntek.dev' },
       { hid: 'og:image', name: 'og:image', content: 'https://syntek.dev/banner.png' },
     ],
