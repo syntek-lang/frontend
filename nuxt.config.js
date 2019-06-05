@@ -1,3 +1,6 @@
+import url from 'url';
+
+const URL = 'https://syntek.dev';
 const TITLE = 'Syntek | Programming language';
 const DESCRIPTION = 'Syntek is a beginner friendly programming language';
 const THEME_COLOR = '#FFD273';
@@ -21,8 +24,8 @@ export default {
       // Open Graph
       { hid: 'og:title', name: 'og:title', content: TITLE },
       { hid: 'og:description', name: 'og:description', content: DESCRIPTION },
-      { hid: 'og:url', name: 'og:url', content: 'https://syntek.dev' },
-      { hid: 'og:image', name: 'og:image', content: 'https://syntek.dev/banner.png' },
+      { hid: 'og:url', name: 'og:url', content: URL },
+      { hid: 'og:image', name: 'og:image', content: url.parse(URL, '/banner.png') },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, // Favicon
@@ -45,7 +48,9 @@ export default {
   ],
 
   // Axios module configuration
-  axios: {},
+  axios: {
+    baseURL: process.env.NODE_ENV === 'production' ? URL : undefined,
+  },
 
   // Build configuration
   build: {
