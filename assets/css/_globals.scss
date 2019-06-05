@@ -1,0 +1,13 @@
+// Colors
+$black: #212121;
+$gray: #323232;
+$yellow: #FFD273;
+
+// Properties
+$border-yellow: 1px solid $yellow;
+
+// Mixins
+@mixin transition($properties...) {
+  transition: all 200ms ease;
+  transition-property: $properties;
+}

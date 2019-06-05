@@ -1,51 +1,55 @@
 <template lang="html">
   <div>
-    <div class="landing">
-      <img
-        src="banner.png"
-        alt="Syntek banner"
-        draggable="false"
-      >
+    <Navbar />
 
-      <div class="buttons">
-        <button
-          type="button"
-          name="docs"
-          @click="openDocs"
+    <main>
+      <div class="landing">
+        <img
+          src="banner.png"
+          alt="Syntek banner"
+          draggable="false"
         >
-          Docs
-        </button>
 
-        <button
-          type="button"
-          name="tryit"
-          @click="tryit"
-        >
-          Try it
-        </button>
-      </div>
-    </div>
+        <div class="buttons">
+          <button
+            type="button"
+            name="docs"
+            @click="openDocs"
+          >
+            Docs
+          </button>
 
-    <no-ssr>
-      <div class="demo">
-        <CodeBlock
-          class="editor"
-
-          :code="SnakeSnippet"
-          :mode="'syntek'"
-          readonly
-        />
-
-        <div class="canvas">
-          Canvas
+          <button
+            type="button"
+            name="tryit"
+            @click="tryit"
+          >
+            Try it
+          </button>
         </div>
       </div>
-    </no-ssr>
+
+      <no-ssr>
+        <div class="demo">
+          <CodeBlock
+            class="editor"
+
+            :code="SnakeSnippet"
+            :mode="'syntek'"
+          />
+
+          <div class="canvas">
+            Canvas
+          </div>
+        </div>
+      </no-ssr>
+    </main>
   </div>
 </template>
 
 <script>
-import SnakeSnippet from '@/assets/snippets/snake.txt';
+import SnakeSnippet from '~/assets/snippets/snake.txt';
+import Navbar from '~/components/Navbar.vue';
 
 let CodeBlock;
 if (process.browser) {
@@ -56,6 +60,7 @@ if (process.browser) {
 export default {
   components: {
     CodeBlock,
+    Navbar,
   },
   data() {
     return {
@@ -74,13 +79,8 @@ export default {
 </script>
 
 <style lang="scss">
-$mq-show-breakpoints: (mobile, tablet, desktop);
-
 @import 'sass-mq';
-
-$black: #212121;
-$gray: #323232;
-$yellow: #FFD273;
+@import '~/assets/css/_globals.scss';
 
 body {
   background-color: $black;
@@ -109,12 +109,12 @@ body {
       height: 50px;
       margin: 0 5px;
 
-      border: 1px solid $yellow;
+      border: $border-yellow;
       outline: none;
       cursor: pointer;
       text-transform: uppercase;
 
-      transition: background-color 200ms ease, color 200ms ease;
+      @include transition(background-color, color);
 
       &[name="docs"] {
         background-color: $yellow;
@@ -141,8 +141,8 @@ body {
 
 .demo {
   margin-top: 40vh;
-  border: 1px solid $yellow;
-  min-height: 700px;
+  border: $border-yellow;
+  height: 800px;
 
   display: grid;
 
