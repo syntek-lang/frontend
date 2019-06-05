@@ -63,7 +63,6 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  border-bottom: $border-yellow;
 
   display: flex;
   flex-direction: row;
