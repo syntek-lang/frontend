@@ -15,7 +15,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
-    "@syntek/vue-syntek-editor": "0.0.1",
+    "@syntek/vue-editor": "0.0.2",
     "cross-env": "^5.2.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.4.0",
