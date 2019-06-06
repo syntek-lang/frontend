@@ -34,7 +34,7 @@ export default {
   },
 
   // Customize the progress-bar color
-  loading: { color: '#fff' },
+  loading: { color: THEME_COLOR },
 
   // Global CSS
   css: [],
@@ -45,6 +45,7 @@ export default {
   // Nuxt.js modules
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/pwa',
   ],
 
   // Axios module configuration
