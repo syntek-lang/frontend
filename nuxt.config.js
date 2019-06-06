@@ -51,6 +51,13 @@ export default {
   // Axios module configuration
   axios: {},
 
+  // PWA manifest configuration
+  manifest: {
+    name: TITLE,
+    short_name: 'Syntek',
+    description: DESCRIPTION,
+  },
+
   // Build configuration
   build: {
     extend(config, ctx) {
