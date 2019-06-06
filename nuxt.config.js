@@ -48,9 +48,7 @@ export default {
   ],
 
   // Axios module configuration
-  axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? URL : undefined,
-  },
+  axios: {},
 
   // Build configuration
   build: {

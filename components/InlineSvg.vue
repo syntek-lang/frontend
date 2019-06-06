@@ -12,7 +12,10 @@ export default {
   },
   async mounted() {
     // Fetch svg
-    const { data } = await this.$axios.get(this.src);
+    const data = await this.$axios.$get(this.src, {
+      baseURL: window.location.origin,
+    });
+
     const result = new DOMParser().parseFromString(data, 'text/xml');
     const svg = result.getElementsByTagName('svg')[0];
 
