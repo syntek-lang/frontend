@@ -10,3 +10,5 @@ jobs:
     - stage: Test
       script: npm run lint
       name: "Lint"
+    - script: npm run generate
+      name: "Build"

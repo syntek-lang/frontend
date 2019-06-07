@@ -54,7 +54,7 @@ import Navbar from '~/components/Navbar.vue';
 let CodeBlock;
 if (process.browser) {
   // eslint-disable-next-line global-require
-  CodeBlock = require('@syntek/vue-syntek-editor').CodeBlock;
+  CodeBlock = require('@syntek/vue-editor').CodeBlock;
 }
 
 export default {
