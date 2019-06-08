@@ -29,43 +29,19 @@
         </div>
       </div>
 
-      <no-ssr>
-        <div class="demo">
-          <CodeBlock
-            class="editor"
-
-            :code="SnakeSnippet"
-            :mode="'syntek'"
-          />
-
-          <div class="canvas">
-            Canvas
-          </div>
-        </div>
-      </no-ssr>
+      <Demo />
     </main>
   </div>
 </template>
 
 <script>
-import SnakeSnippet from '~/assets/snippets/snake.txt';
 import Navbar from '~/components/Navbar.vue';
-
-let CodeBlock;
-if (process.browser) {
-  // eslint-disable-next-line global-require
-  CodeBlock = require('@syntek/vue-editor').CodeBlock;
-}
+import Demo from '~/components/Demo.vue';
 
 export default {
   components: {
-    CodeBlock,
     Navbar,
-  },
-  data() {
-    return {
-      SnakeSnippet,
-    };
+    Demo,
   },
   methods: {
     openDocs() {
@@ -139,49 +115,4 @@ body {
   }
 }
 
-.demo {
-  margin-top: 40vh;
-  border: $border-yellow;
-  height: 800px;
-
-  display: grid;
-
-  // On mobile display editor and canvas underneath eachother
-  @include mq($until: tablet) {
-    grid-template-rows: 1fr 1fr;
-    margin-right: 5px;
-    margin-left: 5px;
-  }
-
-  // On tablet and desktop display them side by side
-  @include mq($from: tablet) {
-    grid-template-columns: 1fr 1fr;
-    margin-right: 75px;
-    margin-left: 75px;
-
-    // Make margin at the sides slightly larger on desktop
-    @include mq($from: desktop) {
-      margin-right: 100px;
-      margin-left: 100px;
-    }
-  }
-
-  .editor {
-    font-size: 1.1em;
-    font-weight: normal;
-    overflow-x: auto;
-  }
-
-  .canvas {
-    background-color: $gray;
-    color: $yellow;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  // TODO: Remove this when the page continues further down
-  margin-bottom: 100px;
-}
 </style>
