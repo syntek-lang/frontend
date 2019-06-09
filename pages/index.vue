@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     openDocs() {
-      window.open('https://github.com/syntek-lang/syntek/tree/master/syntax', '_blank');
+      window.open('https://docs.syntek.dev', '_blank');
     },
     tryit() {
       document.getElementsByClassName('demo')[0].scrollIntoView({ behavior: 'smooth' });
