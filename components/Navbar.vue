@@ -1,20 +1,31 @@
 <template lang="html">
-  <nav>
-    <ul>
-      <li
-        v-for="item in items"
-        :key="item.name"
-      >
+  <div class="navigation">
+    <nav>
+      <div class="nav-mobile">
         <a
-          :href="item.url"
-          target="_blank"
-          rel="noreferrer"
+          id="nav-toggle"
+          href="#"
+          @click="toggleNav"
         >
-          <InlineSvg :src="`icons/${item.name.toLowerCase()}.svg`" /> {{ item.name }}
+          <span />
         </a>
-      </li>
-    </ul>
-  </nav>
+      </div>
+      <ul class="nav-list">
+        <li
+          v-for="item in items"
+          :key="item.name"
+        >
+          <a
+            :href="item.url"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <InlineSvg :src="`icons/${item.name.toLowerCase()}.svg`" /> {{ item.name }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -42,6 +53,13 @@ export default {
       ],
     };
   },
+  methods: {
+    toggleNav(event) {
+      event.preventDefault();
+      event.currentTarget.classList.toggle('active');
+      this.$el.querySelector('.nav-list').classList.toggle('hide');
+    },
+  },
 };
 </script>
 
@@ -58,6 +76,97 @@ $desktop: (
   height: 64px,
   padding: 20px,
 );
+
+nav {
+  float: right;
+}
+
+.hide {
+  display: inline-block !important;
+  height: 100%;
+}
+
+.navigation {
+  background: $black;
+  height: map-get($mobile, height);
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: $black;
+  height: map-get($mobile, height);
+  width: map-get($mobile, height);
+}
+
+@media only screen and (max-width: 798px) {
+  // Hamburger nav visible on mobile only
+  nav {
+    width: 100%;
+    padding: map-get($mobile, height) 0 15px;
+  }
+
+  .nav-mobile {
+    display: block;
+  }
+  .nav-list {
+    width: 100%;
+    display: none;
+  }
+
+  .nav-list li {
+    width: 100%;
+    float: none;
+  }
+}
+
+@media screen and (min-width: 799px) {
+    .nav-list {
+    display: block !important;
+  }
+}
+
+  #nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+  span,
+  span:before,
+  span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: $yellow;
+    position: absolute;
+    display: block;
+    content: " ";
+    transition: all 300ms ease-in-out;
+  }
+  span:before {
+    top: -10px;
+  }
+  span:after {
+    bottom: -10px;
+  }
+  &.active span {
+    background-color: transparent;
+    &:before,
+    &:after {
+      top: 0;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+      }
+    }
+  }
 
 ul {
   list-style-type: none;
@@ -77,9 +186,12 @@ ul {
     height: map-get($desktop, height);
   }
 
+  li {
+    float: left;
+  }
+
   li a {
     padding: 0 25px;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
