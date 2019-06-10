@@ -19,7 +19,7 @@
 
 <script>
 import SnakeSnippet from '~/assets/snippets/snake.txt';
-import SnakeGame from '~/assets/snake';
+import Game from '~/assets/snake/Game.js';
 
 let CodeBlock;
 let syntek;
@@ -103,7 +103,7 @@ export default {
   },
   methods: {
     run() {
-      this.game = new SnakeGame(this.$refs.canvas);
+      this.game = new Game(this.$refs.canvas);
 
       try {
         const compiled = syntek.compile(this.code, 'snake');

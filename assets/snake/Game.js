@@ -1,7 +1,7 @@
-import Apple from './Apple';
-import Snake from './Snake';
+import Apple from './Apple.js';
+import Snake from './Snake.js';
 
-export default class SnakeGame {
+export default class Game {
   constructor(element) {
     this.canvas = element;
     this.context = element.getContext('2d');
