@@ -58,9 +58,12 @@ export default {
 @import 'sass-mq';
 @import '~/assets/css/_globals.scss';
 
+$font-family: 'Oswald', sans-serif;
+$button-font-size: 1.3em;
+
 body {
   background-color: $black;
-  font-family: 'Oswald', sans-serif;
+  font-family: $font-family;
   font-weight: 600;
 }
 
@@ -71,7 +74,6 @@ body {
     width: 300px;
     display: block;
     margin: 10px auto;
-
     user-select: none;
   }
 
@@ -80,19 +82,18 @@ body {
     justify-content: center;
 
     button {
-      font-size: 1.3em;
+      @include transition(background-color, color);
+
+      font-size: $button-font-size;
       width: 150px;
       height: 50px;
       margin: 0 5px;
-
       border: $border-yellow;
       outline: none;
       cursor: pointer;
       text-transform: uppercase;
 
-      @include transition(background-color, color);
-
-      &[name="docs"] {
+      &[name='docs'] {
         background-color: $yellow;
         color: $black;
 
@@ -102,7 +103,7 @@ body {
         }
       }
 
-      &[name="tryit"] {
+      &[name='tryit'] {
         background-color: $black;
         color: $yellow;
 

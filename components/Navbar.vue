@@ -60,10 +60,12 @@ $desktop: (
 );
 
 ul {
+  // Transition background and text
+  @include transition(background-color, color);
+
   list-style-type: none;
   margin: 0;
   padding: 0;
-
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -79,12 +81,10 @@ ul {
 
   li a {
     padding: 0 25px;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     color: $yellow;
     text-decoration: none;
     text-transform: uppercase;
@@ -106,9 +106,6 @@ ul {
         padding: map-get($desktop, padding) 0;
       }
     }
-
-    // Transition background and text
-    @include transition(background-color, color);
 
     &:hover {
       background-color: $yellow;

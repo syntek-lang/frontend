@@ -10,7 +10,9 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "npm run lint:code && npm run lint:css",
+    "lint:code": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:css": "stylelint **/*.vue **/*.scss **/*.css --syntax scss",
     "precommit": "npm run lint",
     "postinstall": "cd node_modules/syntek && npm i && npm run prepublishOnly && cd ../.."
   },
@@ -25,6 +27,7 @@
     "syntek": "git://github.com/syntek-lang/syntek.git#a8c8bad"
   },
   "devDependencies": {
+    "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
     "@syntek/eslint-config-syntek": "^2.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
@@ -32,12 +35,15 @@
     "eslint-loader": "^2.1.2",
     "eslint-plugin-eslint-comments": "^3.1.1",
     "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jsdoc": "^7.2.3",
+    "eslint-plugin-jsdoc": "^8.0.1",
     "eslint-plugin-nuxt": "^0.4.3",
     "eslint-plugin-vue": "^5.2.2",
     "node-sass": "^4.12.0",
     "nodemon": "^1.18.9",
     "raw-loader": "^3.0.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-strict-scss": "^0.5.0",
+    "stylelint-scss": "^3.8.0"
   }
 }

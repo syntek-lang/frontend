@@ -6,8 +6,8 @@
 @import 'normalize.css';
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 </style>

@@ -120,11 +120,12 @@ export default {
 @import 'sass-mq';
 @import '~/assets/css/_globals.scss';
 
+$editor-font-size: 1.1em;
+
 .demo {
   margin-top: 40vh;
   border: $border-yellow;
   height: 800px;
-
   display: grid;
 
   // On mobile display editor and canvas underneath eachother
@@ -148,21 +149,21 @@ export default {
   }
 
   .editor {
-    font-size: 1.1em;
-    font-weight: normal;
+    font-size: $editor-font-size;
+    font-weight: 400;
     overflow-x: auto;
   }
 
   .canvas {
     background-color: $gray;
     color: $yellow;
-
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   // TODO: Remove this when the page continues further down
+  /* stylelint-disable-next-line order/order */
   margin-bottom: 100px;
 }
 
