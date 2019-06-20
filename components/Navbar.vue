@@ -104,8 +104,13 @@ nav {
   width: map-get($mobile, height);
 }
 
-@media only screen and (max-width: 798px) {
-  // Hamburger nav visible on mobile only
+@include mq($until: tablet, $media-type: screen) {
+  .nav-list {
+    display: block;
+  }
+}
+
+@include mq($until: tablet, $media-type: screen) {
   nav {
     width: 100%;
     padding: map-get($mobile, height) 0 15px;
@@ -125,11 +130,6 @@ nav {
   }
 }
 
-@media screen and (min-width: 799px) {
-    .nav-list {
-    display: block !important;
-  }
-}
 
   #nav-toggle {
   position: absolute;
@@ -148,7 +148,7 @@ nav {
     position: absolute;
     display: block;
     content: " ";
-    transition: all 300ms ease-in-out;
+    @include transition(all);
   }
   span:before {
     top: -10px;
