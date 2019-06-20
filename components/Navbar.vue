@@ -10,7 +10,10 @@
           <span />
         </a>
       </div>
-      <ul class="nav-list">
+      <ul
+        ref="navList"
+        class="nav-list"
+      >
         <li
           v-for="item in items"
           :key="item.name"
@@ -57,7 +60,7 @@ export default {
     toggleNav(event) {
       event.preventDefault();
       event.currentTarget.classList.toggle('active');
-      this.$el.querySelector('.nav-list').classList.toggle('hide');
+      this.$refs.navList.classList.toggle('hide');
     },
   },
 };
@@ -130,7 +133,7 @@ nav {
 
   #nav-toggle {
   position: absolute;
-  left: 18px;
+  left: 0;
   top: 22px;
   cursor: pointer;
   padding: 10px 35px 16px 0px;
