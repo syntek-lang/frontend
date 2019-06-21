@@ -43,6 +43,10 @@ export default {
   },
   watch: {
     code() {
+      if (window.innerWidth < 980) {
+        return;
+      }
+
       this.run();
     },
   },
@@ -120,49 +124,52 @@ export default {
 @import 'sass-mq';
 @import '~/assets/css/_globals.scss';
 
+$editor-font-size: 1.1em;
+
 .demo {
   margin-top: 40vh;
   border: $border-yellow;
   height: 800px;
-
   display: grid;
 
   // On mobile display editor and canvas underneath eachother
-  @include mq($until: tablet) {
-    grid-template-rows: 1fr 1fr;
+  @include mq($until: desktop) {
     margin-right: 5px;
     margin-left: 5px;
-  }
 
-  // On tablet and desktop display them side by side
-  @include mq($from: tablet) {
-    grid-template-columns: 1fr 1fr;
-    margin-right: 75px;
-    margin-left: 75px;
-
-    // Make margin at the sides slightly larger on desktop
-    @include mq($from: desktop) {
-      margin-right: 100px;
-      margin-left: 100px;
+    @include mq($from: tablet) {
+      // Make margin at the sides slightly larger on tablets
+      margin-right: 75px;
+      margin-left: 75px;
     }
   }
 
+  @include mq($from: desktop) {
+    grid-template-columns: 1fr 1fr;
+    margin-right: 100px;
+    margin-left: 100px;
+  }
+
   .editor {
-    font-size: 1.1em;
-    font-weight: normal;
+    font-size: $editor-font-size;
+    font-weight: 400;
     overflow-x: auto;
   }
 
   .canvas {
     background-color: $gray;
     color: $yellow;
-
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include mq($until: desktop) {
+      display: none;
+    }
   }
 
   // TODO: Remove this when the page continues further down
+  /* stylelint-disable-next-line order/order */
   margin-bottom: 100px;
 }
 
