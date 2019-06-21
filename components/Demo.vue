@@ -43,6 +43,10 @@ export default {
   },
   watch: {
     code() {
+      if (window.innerWidth < 980) {
+        return;
+      }
+
       this.run();
     },
   },
@@ -129,23 +133,21 @@ $editor-font-size: 1.1em;
   display: grid;
 
   // On mobile display editor and canvas underneath eachother
-  @include mq($until: tablet) {
-    grid-template-rows: 1fr 1fr;
+  @include mq($until: desktop) {
     margin-right: 5px;
     margin-left: 5px;
+
+    @include mq($from: tablet) {
+      // Make margin at the sides slightly larger on tablets
+      margin-right: 75px;
+      margin-left: 75px;
+    }
   }
 
-  // On tablet and desktop display them side by side
-  @include mq($from: tablet) {
+  @include mq($from: desktop) {
     grid-template-columns: 1fr 1fr;
-    margin-right: 75px;
-    margin-left: 75px;
-
-    // Make margin at the sides slightly larger on desktop
-    @include mq($from: desktop) {
-      margin-right: 100px;
-      margin-left: 100px;
-    }
+    margin-right: 100px;
+    margin-left: 100px;
   }
 
   .editor {
@@ -160,6 +162,10 @@ $editor-font-size: 1.1em;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include mq($until: desktop) {
+      display: none;
+    }
   }
 
   // TODO: Remove this when the page continues further down

@@ -1,3 +1,6 @@
+# The game is interactive
+# on desktop devices
+
 direction = 1
 
 function arrowUp()
