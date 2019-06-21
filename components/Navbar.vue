@@ -119,6 +119,7 @@ nav {
   .nav-mobile {
     display: block;
   }
+
   .nav-list {
     width: 100%;
     display: none;
@@ -130,16 +131,18 @@ nav {
   }
 }
 
-
-  #nav-toggle {
+#nav-toggle {
   position: absolute;
   left: 0;
   top: 22px;
   cursor: pointer;
-  padding: 10px 35px 16px 0px;
+  padding: 10px 35px 16px 0;
+
   span,
-  span:before,
-  span:after {
+  span::before,
+  span::after {
+    @include transition(all);
+
     cursor: pointer;
     border-radius: 1px;
     height: 5px;
@@ -147,29 +150,34 @@ nav {
     background: $yellow;
     position: absolute;
     display: block;
-    content: " ";
-    @include transition(all);
+    content: ' ';
   }
-  span:before {
+
+  span::before {
     top: -10px;
   }
-  span:after {
+
+  span::after {
     bottom: -10px;
   }
+
   &.active span {
     background-color: transparent;
-    &:before,
-    &:after {
+
+    &::before,
+    &::after {
       top: 0;
     }
-    &:before {
+
+    &::before {
       transform: rotate(45deg);
     }
-    &:after {
+
+    &::after {
       transform: rotate(-45deg);
-      }
     }
   }
+}
 
 ul {
   // Transition background and text
