@@ -167,10 +167,6 @@ $editor-font-size: 1.1em;
       display: none;
     }
   }
-
-  // TODO: Remove this when the page continues further down
-  /* stylelint-disable-next-line order/order */
-  margin-bottom: 100px;
 }
 
 </style>
