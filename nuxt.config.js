@@ -73,7 +73,7 @@ export default {
 
       // raw-loader
       config.module.rules.push({
-        test: /\.txt$/,
+        test: /\.tek$/,
         loader: 'raw-loader',
       });
     },

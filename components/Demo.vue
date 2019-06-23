@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import SnakeSnippet from '~/assets/snippets/snake.txt';
+import SnakeSnippet from '~/assets/snippets/snake.tek';
 import Game from '~/assets/snake/Game.js';
 
 let CodeBlock;
