@@ -60,9 +60,6 @@ $desktop: (
 );
 
 ul {
-  // Transition background and text
-  @include transition(background-color, color);
-
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -80,6 +77,9 @@ ul {
   }
 
   li a {
+    // Transition background and text
+    @include transition(background-color, color);
+
     padding: 0 25px;
     display: flex;
     flex-direction: row;
